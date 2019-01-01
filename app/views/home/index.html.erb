@@ -3,6 +3,9 @@
 <div class='measurement-total'>
   <%= @total %>
 </div>
+<div class='measurement-average'>
+  <h4>Average: <%= @average %></h4>
+</div>
 <div class='measurement-form'>
   <%= form_for @measurement do |form| %>
     <%= form.number_field :reps %>
