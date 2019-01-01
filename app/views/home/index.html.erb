@@ -1,4 +1,4 @@
-<h1>Tracker</h1>
+h1>Tracker</h1>
 <h3>Total:</h3>
 <div class='measurement-total'>
   <%= @total %>
@@ -12,4 +12,6 @@
     <%= form.submit 'Submit' %>
   <% end %>
 </div>
+<br>
+<%= link_to 'View measurement history', measurements_path %>
 
