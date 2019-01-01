@@ -1,0 +1,12 @@
+<h1>Tracker</h1>
+<h3>Total:</h3>
+<div class='measurement-total'>
+  <%= @total %>
+</div>
+<div class='measurement-form'>
+  <%= form_for @measurement do |form| %>
+    <%= form.number_field :reps %>
+    <%= form.submit 'Submit' %>
+  <% end %>
+</div>
+
