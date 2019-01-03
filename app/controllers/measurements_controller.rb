@@ -1,6 +1,6 @@
 class MeasurementsController < ApplicationController
   def index
-    @measurements = Measurement.all
+    @grouped_measurements = Measurement.all.group_by { |m| m.created_at.day }
   end
 
   def create
