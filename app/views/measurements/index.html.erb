@@ -1,4 +1,4 @@
-<h3>Measurements history</h3>
+<h3 class='history-title'>Measurements history</h3>
 <% @grouped_measurements.each do |k, v| %>
   <div class='measurement-date'>
     <h3><%= DateTime.new(v.first.created_at.year, v.first.created_at.month, v.first.created_at.day).strftime('%F') %></h3>
@@ -6,6 +6,12 @@
   <div class='group-measurements'>
     <% v.each do |measurement| %>
       <%= measurement.reps %>
+    <% end %>
+    <div class='day-total'>
+      <h4>Total that day: <%= v.map(&:reps).inject(0, &:+) %></h4>
+    </div>
+    <% unless v == @grouped_measurements.values.last %>
+      <hr>
     <% end %>
   </div>
 <% end %>
