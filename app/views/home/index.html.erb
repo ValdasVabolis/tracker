@@ -1,21 +1,24 @@
-<h1>Tracker</h1>
-<h3>Total:</h3>
-<div class='measurement-total'>
-  <%= @total %>
+<div class='tracking-card'>
+  <h1>Tracker</h1>
+  <h3>Total:</h3>
+  <div class='measurement-total'>
+    <%= @total %>
+  </div>
+  <div class='measurement-averages'>
+    <h3>Averages</h3>
+    <p>Per set: <%= @average_per_set %></p>
+    <p>Per day: <%= @average_per_day %></p>
+  </div>
+  <div class='measurement-form'>
+    <%= form_for @measurement do |form| %>
+      <%= form.number_field :reps, value: 0 %>
+      <%= form.submit 'Submit' %>
+    <% end %>
+  </div>
+  <div class='measurement-tools'>
+    <button class='add-5' data-increment-value='5'>+5</button>
+    <button class='add-10' data-increment-value='10'>+10</button>
+  </div>
+  <br><br>
+  <%= link_to 'View measurement history', measurements_path %>
 </div>
-<div class='measurement-average'>
-  <h4>Average: <%= @average %></h4>
-</div>
-<div class='measurement-form'>
-  <%= form_for @measurement do |form| %>
-    <%= form.number_field :reps, value: 0 %>
-    <%= form.submit 'Submit' %>
-  <% end %>
-</div>
-<div class='measurement-tools'>
-  <button class='add-5' data-increment-value='5'>+5</button>
-  <button class='add-10' data-increment-value='10'>+10</button>
-</div>
-<br><br>
-<%= link_to 'View measurement history', measurements_path %>
-
